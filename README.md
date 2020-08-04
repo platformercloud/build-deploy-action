@@ -47,3 +47,18 @@ How your image should be versioned. Supported (patch,minor,major) Default `"patc
 **Required** Platformer Service Account Token to be used for this action. Please use Secrets for this.
 
 
+## Example
+
+```
+  build:
+    steps:
+    - name: Platformer Deploy
+      uses: platformer-com/build-deploy-action@v1
+      with:
+       org-id: ${{secrets.ORG_ID}}
+       project-id: ${{secrets.PROJECT_ID}}
+       token: ${{secrets.TOKEN}}
+       image-name: ${{secrets.DOCKER_USER}}/${{ github.event.repository.name }} 
+       tag: ${{github.sha}}
+       container-id: some-container-id
+```
