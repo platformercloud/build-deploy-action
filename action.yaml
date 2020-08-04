@@ -1,0 +1,49 @@
+name: 'Platformer Deployer'
+description: 'Deploy newly built docker images to Platformer Cloud'
+inputs:
+  domain:
+    description: 'Platformer API Domain. Typically (https://api.platformer.com)'
+    required: false
+    default: 'https://beta.api.platformer.com'
+  org-id:
+    description: 'Platformer Organization ID'
+    required: true
+    default: ''
+  project-id:
+    description: 'Platformer Project ID'
+    required: true
+    default: ''
+  image-name: 
+    description: 'Name of the image'
+    required: true
+    default: ''
+  tag: 
+    description: 'Name of the built tag'
+    required: true
+    default: 'latest'
+  container-id:
+    description: 'For Direct environment deployments'
+    required: false
+    default: ''
+  image-registry-id:
+    description: 'To just push to the Platformer Registry and update all asscociated containers which has auto deploy turned on'
+    required: false
+    default: ''
+  channel: 
+    description: 'Channels allow you to version your builds within Platformer Console'
+    required: false
+    default: 'default'
+  update-type: 
+    description: 'How platformer should version update the image (patch,minor,major)'
+    required: false
+    default: 'patch'
+  token: 
+    description: 'Service Account token for Platformer. (Mount on Secrets)'
+    required: true
+    default: ''
+outputs:
+  platformer-status:
+    description: 'Status of the Webhook Call to Platformer'
+runs:
+  using: 'node12'
+  main: 'index.js'
