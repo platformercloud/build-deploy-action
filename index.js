@@ -40,6 +40,9 @@ try {
         'x-organization-id': organizationId
     }
 
+    console.log("sending request to " + WebhhookURL)
+    console.log(body)
+    
     axios.post(WebhhookURL, body, {
         headers: headers
     }).then(function (response) {
