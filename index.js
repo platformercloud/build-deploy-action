@@ -17,7 +17,7 @@ try {
     const organizationId = core.getInput('org-id');
 
     console.log(`Sending Request to Platformer API....`);
-    const payload = {
+    const body = {
         channel,
         update_type: updateType,
         image: imageName,
@@ -26,11 +26,11 @@ try {
 
     let WebhhookURL;
     if (containerID && containerID != "") {
-        payload.containerID = containerID
+        body.containerID = containerID
         WebhhookURL = `${domain}/rudder/webhook/v1/container`
     }
     if (imageRegistryID && imageRegistryID != "") {
-        payload.imageRegistryID = imageRegistryID
+        body.imageRegistryID = imageRegistryID
         WebhhookURL = `${domain}/rudder/webhook/v1/image-registry`
     }
     const headers = {
@@ -40,7 +40,7 @@ try {
         'x-organization-id': organizationId
     }
 
-    await axios.post(WebhhookURL, payload, {
+    await axios.post(WebhhookURL, body, {
         headers: headers
     });
     core.setOutput("platformer-status", "deployed");
