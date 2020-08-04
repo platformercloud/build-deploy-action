@@ -26,11 +26,11 @@ try {
 
     let WebhhookURL;
     if (containerID && containerID != "") {
-        body.containerID = containerID
+        body.container_id = containerID
         WebhhookURL = `${domain}/rudder/webhook/v1/container`
     }
     if (imageRegistryID && imageRegistryID != "") {
-        body.imageRegistryID = imageRegistryID
+        body.image_registry_id = imageRegistryID
         WebhhookURL = `${domain}/rudder/webhook/v1/image-registry`
     }
     const headers = {
@@ -41,7 +41,7 @@ try {
     }
 
     console.log("sending request to " + WebhhookURL)
-    console.log(body)
+   
     
     axios.post(WebhhookURL, body, {
         headers: headers
