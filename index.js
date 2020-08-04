@@ -40,13 +40,19 @@ try {
         'x-organization-id': organizationId
     }
 
-    await axios.post(WebhhookURL, body, {
+    axios.post(WebhhookURL, body, {
         headers: headers
+    }).then(function (response) {
+        core.setOutput("platformer-status", "deployed");
+    }).catch(function (error) {
+        core.setOutput("platformer-status", "failed");
+        core.setFailed(error.message);
     });
-    core.setOutput("platformer-status", "deployed");
 
 } catch (error) {
     core.setOutput("platformer-status", "failed");
     core.setFailed(error.message);
 }
+
+
 
