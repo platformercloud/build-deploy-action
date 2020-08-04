@@ -1,7 +1,9 @@
 name: 'Platformer Deployer'
 description: 'Deploy newly built docker images to Platformer Cloud'
-icon: 'arrow-up-circle'
-color: 'blue'
+author: Platformer
+branding:
+  icon: 'arrow-up-circle'
+  color: 'blue'
 inputs:
   domain:
     description: 'Platformer API Domain. Typically (https://api.platformer.com)'
