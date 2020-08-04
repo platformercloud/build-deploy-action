@@ -1,5 +1,5 @@
 name: 'Platformer Deployer'
-description: 'Deploy newly built docker images to Platformer Cloud'
+description: 'Deploy newly built docker images to kubernetes through the Platformer Console'
 author: Platformer
 branding:
   icon: 'arrow-up-circle'
