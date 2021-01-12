@@ -15,6 +15,11 @@ try {
     const tag = core.getInput('tag');
     const projectId = core.getInput('project-id');
     const organizationId = core.getInput('org-id');
+    const organizationId = core.getInput('debug');
+ 
+    if (debug){
+         console.log(`debug enabled...`);
+    }
 
     console.log(`Sending Request to Platformer API....`);
     const body = {
@@ -38,6 +43,11 @@ try {
         'Authorization': token,
         'x-project-id': projectId,
         'x-organization-id': organizationId
+    }
+    
+     if (debug){
+         console.log("request-body: ", JSON.stringify(body));
+         console.log("request-headers: ", JSON.stringify(headers));
     }
 
     console.log("sending request to " + WebhhookURL)
